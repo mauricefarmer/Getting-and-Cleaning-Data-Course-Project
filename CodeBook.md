@@ -1,6 +1,6 @@
 CodeBook for Final Assignment for Johns Hopkins Getting and Cleaning Data Course
 
-The data
+The data 
 --------
 
 The data consist of a Human Activity Recognition database built from the
