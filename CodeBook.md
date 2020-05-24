@@ -13,9 +13,7 @@ output: md_document
 The data consist of a Human Activity Recognition database built from the
 recordings of 30 subjects performing activities of daily living (ADL)
 while carrying a waist-mounted smartphone with embedded inertial
-sensors. The data is distributed between several ‘.txt’ files and is
-zipped series of ‘.txt’ files representing Human Activity Recognition
-Using Smartphones Dataset (1).
+sensors. The data were produced by Anguita, D et al. at the Università degli Studi di Genova, Italy (1).
 
 The authors explain the data as follows:
 
