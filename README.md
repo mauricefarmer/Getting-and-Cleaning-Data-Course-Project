@@ -1,6 +1,6 @@
 # ReadMe.md
 
-This repository consists of files completing the final project for the Johns Hopkins Getting and Cleaning Data Course.
+This repository contains files produced in completion of the final project for the Johns Hopkins course Getting and Cleaning Data on Coursera.
 
 The respoitory contains the following files:
 
