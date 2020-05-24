@@ -1,6 +1,13 @@
-CodeBook for Final Assignment for Johns Hopkins Getting and Cleaning Data Course
+---
+title: "CodeBook"
+author: "MF"
+date: "24/05/2020"
+output: md_document
+---
 
-The data 
+# CodeBook for Final Assignment for Johns Hopkins Getting and Cleaning Data Course
+
+ The data 
 --------
 
 The data consist of a Human Activity Recognition database built from the
@@ -8,7 +15,7 @@ recordings of 30 subjects performing activities of daily living (ADL)
 while carrying a waist-mounted smartphone with embedded inertial
 sensors. The data is distributed between several ‘.txt’ files and is
 zipped series of ‘.txt’ files representing Human Activity Recognition
-Using Smartphones Dataset \[^1\]
+Using Smartphones Dataset (1).
 
 The authors explain the data as follows:
 
@@ -35,10 +42,10 @@ frequency components, therefore a filter with 0.3 Hz cutoff frequency
 was used. From each window, a vector of features was obtained by
 calculating variables from the time and frequency domain."
 
-The data is is downloaded from
+The data was downloaded from
 <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip" class="uri">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a>
 
-The run\_analysis script downloads a zipped file called ‘Dataset.zip’
+The run\_analysis.R script downloads a zipped file called ‘Dataset.zip’
 and unzips this into a directory called ‘UCI HAR Dataset’ containing the
 following files:
 
@@ -71,20 +78,21 @@ following files:
 -   train/X\_train.txt
 -   train/y\_train.txt
 
-However, only the following files are used by the script: -
-activity\_labels.txt (links the label numbers with their activity name)
-- features.txt : contains list of all features - test/subject\_test.txt
-: Each row identifies the subject who performed the activity for each
-window sample. Its range is from 1 to 30 - test/X\_test.txt : Test data
-set - test/y\_test.txt : Test label values - train/subject\_train.txt :
-Each row identifies the subject who performed the activity for each
-window sample. Its range is from 1 to 30 - train/X\_train.txt : Training
-data set - train/y\_train.txt : Training label numbers
+For the data transformation described here only the following files were used:
+
+- activity\_labels.txt (links the label numbers with their activity name)
+- features.txt : contains list of all features 
+- test/subject\_test.txt : Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30 
+- test/X\_test.txt : Test data set 
+- test/y\_test.txt : Test label values 
+- train/subject\_train.txt : Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30 
+- train/X\_train.txt : Training data set 
+- train/y\_train.txt : Training label numbers
 
 Variables
 ---------
 
-Each record in the original dataset consists of the following
+In the origianl dataset, each record consists of the following
 information:
 
 -   Triaxial acceleration from the accelerometer (total acceleration)
@@ -100,87 +108,98 @@ information:
 
 Additional notes:
 
--   Features are normalized and bounded within \[-1,1\].
--   Each feature vector is a row on the text file.
+-   Features are normalized and bounded within (-1,1)
+-   Each feature vector is a row on the text file
 
 ### Tidy data variables
 
-The variables in the final, tidy, data file are:
+The output of the run_analysis.R script is a tidy data file containing 11880 rows and 4 columns. The columns are:
 
-subject : An identifier of the subject who carried out the experiment
-(value between 1 and 30) activity : An activity label (walking, walking
-upstairs, walking downstairs, sitting, standing, laying)
+* subject : an identifier of the subject who carried out the experiment
+(value between 1 and 30) 
+* activity : an activity label (walking, walking upstairs, walking downstairs, sitting, standing, laying)
 
-time-Body-Accelerometer-Mean-X-Axis time-Body-Accelerometer-Mean-Y-Axis
-time-Body-Accelerometer-Mean-Z-Axis
-time-Body-Accelerometer-Standard-Deviation-X-Axis
-time-Body-Accelerometer-Standard-Deviation-Y-Axis
-time-Body-Accelerometer-Standard-Deviation-Z-Axis
-time-Gravity-Accelerometer-Mean-X-Axis
-time-Gravity-Accelerometer-Mean-Y-Axis
-time-Gravity-Accelerometer-Mean-Z-Axis
-time-Gravity-Accelerometer-Standard-Deviation-X-Axis
-time-Gravity-Accelerometer-Standard-Deviation-Y-Axis
-time-Gravity-Accelerometer-Standard-Deviation-Z-Axis
-time-Body-Accelerometer-Jerk-Mean-X-Axis
-time-Body-Accelerometer-Jerk-Mean-Y-Axis
-time-Body-Accelerometer-Jerk-Mean-Z-Axis
-time-Body-Accelerometer-Jerk-Standard-Deviation-X-Axis
-time-Body-Accelerometer-Jerk-Standard-Deviation-Y-Axis
-time-Body-Accelerometer-Jerk-Standard-Deviation-Z-Axis
-time-Body-Gyroscope-Mean-X-Axis time-Body-Gyroscope-Mean-Y-Axis
-time-Body-Gyroscope-Mean-Z-Axis
-time-Body-Gyroscope-Standard-Deviation-X-Axis
-time-Body-Gyroscope-Standard-Deviation-Y-Axis
-time-Body-Gyroscope-Standard-Deviation-Z-Axis
-time-Body-Gyroscope-Jerk-Mean-X-Axis
-time-Body-Gyroscope-Jerk-Mean-Y-Axis
-time-Body-Gyroscope-Jerk-Mean-Z-Axis
-time-Body-Gyroscope-Jerk-Standard-Deviation-X-Axis
-time-Body-Gyroscope-Jerk-Standard-Deviation-Y-Axis
-time-Body-Gyroscope-Jerk-Standard-Deviation-Z-Axis
-time-Body-Accelerometer-Magnitude-Mean
-time-Body-Accelerometer-Magnitude-Standard-Deviation
-time-Gravity-Accelerometer-Magnitude-Mean
-time-Gravity-Accelerometer-Magnitude-Standard-Deviation
-time-Body-Accelerometer-Jerk-Magnitude-Mean
-time-Body-Accelerometer-Jerk-Magnitude-Standard-Deviation
-time-Body-Gyroscope-Magnitude-Mean
-time-Body-Gyroscope-Magnitude-Standard-Deviation
-time-Body-Gyroscope-Jerk-Magnitude-Mean
-time-Body-Gyroscope-Jerk-Magnitude-Standard-Deviation
+* average : the average value calculated for each feature, measured in 'g' or radians/second for accelerometer or gyrosope measurements, respectively
 
-frequency-Body-Accelerometer-Mean-X-Axis
-frequency-Body-Accelerometer-Mean-Y-Axis
-frequency-Body-Accelerometer-Mean-Z-Axis
-frequency-Body-Accelerometer-Standard-Deviation-X-Axis
-frequency-Body-Accelerometer-Standard-Deviation-Y-Axis
-frequency-Body-Accelerometer-Standard-Deviation-Z-Axis
-frequency-Body-Accelerometer-Jerk-Mean-X-Axis
-frequency-Body-Accelerometer-Jerk-Mean-Y-Axis
-frequency-Body-Accelerometer-Jerk-Mean-Z-Axis
-frequency-Body-Accelerometer-Jerk-Standard-Deviation-X-Axis
-frequency-Body-Accelerometer-Jerk-Standard-Deviation-Y-Axis
-frequency-Body-Accelerometer-Jerk-Standard-Deviation-Z-Axis
-frequency-Body-Gyroscope-Mean-X-Axis
-frequency-Body-Gyroscope-Mean-Y-Axis
-frequency-Body-Gyroscope-Mean-Z-Axis
-frequency-Body-Gyroscope-Standard-Deviation-X-Axis
-frequency-Body-Gyroscope-Standard-Deviation-Y-Axis
-frequency-Body-Gyroscope-Standard-Deviation-Z-Axis
-frequency-Body-Accelerometer-Magnitude-Mean
-frequency-Body-Accelerometer-Magnitude-Standard-Deviation
-frequency-Body-Body-Accelerometer-Jerk-Magnitude-Mean
-frequency-Body-Body-Accelerometer-Jerk-Magnitude-Standard-Deviation
-frequency-Body-Body-Gyroscope-Magnitude-Mean
-frequency-Body-Body-Gyroscope-Magnitude-Standard-Deviation
-frequency-Body-Body-Gyroscope-Jerk-Magnitude-Mean
-frequency-Body-Body-Gyroscope-Jerk-Magnitude-Standard-Deviation
+* feature : 
+
+  * Mean and standard deviation for accelerometer sensor signal values (including derived signals for Jerk) for X,Y and Z axes, separated into Body and Gravity acceleration signals and measured in units of 'g' 
+
+    - time-Body-Accelerometer-Mean-X-Axis 
+    - time-Body-Accelerometer-Mean-Y-Axis
+    - time-Body-Accelerometer-Mean-Z-Axis
+    - time-Body-Accelerometer-Standard-Deviation-X-Axis
+    - time-Body-Accelerometer-Standard-Deviation-Y-Axis
+    - time-Body-Accelerometer-Standard-Deviation-Z-Axis
+    - time-Gravity-Accelerometer-Mean-X-Axis
+    - time-Gravity-Accelerometer-Mean-Y-Axis
+    - time-Gravity-Accelerometer-Mean-Z-Axis
+    - time-Gravity-Accelerometer-Standard-Deviation-X-Axis
+    - time-Gravity-Accelerometer-Standard-Deviation-Y-Axis
+    - time-Gravity-Accelerometer-Standard-Deviation-Z-Axis
+    - time-Body-Accelerometer-Jerk-Mean-X-Axis
+    - time-Body-Accelerometer-Jerk-Mean-Y-Axis
+    - time-Body-Accelerometer-Jerk-Mean-Z-Axis
+    - time-Body-Accelerometer-Jerk-Standard-Deviation-X-Axis
+    - time-Body-Accelerometer-Jerk-Standard-Deviation-Y-Axis
+    - time-Body-Accelerometer-Jerk-Standard-Deviation-Z-Axis
+  * Magnitude of Accelerometer signals (as described above), calculated using the Euclidean norm, units in 'g'
+    - time-Body-Accelerometer-Magnitude-Mean
+    - time-Body-Accelerometer-Magnitude-Standard-Deviation
+    - time-Gravity-Accelerometer-Magnitude-Mean
+    - time-Gravity-Accelerometer-Magnitude-Standard-Deviation
+    - time-Body-Accelerometer-Jerk-Magnitude-Mean
+    - time-Body-Accelerometer-Jerk-Magnitude-Standard-Deviation
+  * Mean and standard deviation of angular velocity from the gyroscope, measured in units of radians/second, (including derived signals for Jerk) for X,Y and Z axes
+    - time-Body-Gyroscope-Mean-X-Axis 
+    - time-Body-Gyroscope-Mean-Y-Axis
+    - time-Body-Gyroscope-Mean-Z-Axis
+    - time-Body-Gyroscope-Standard-Deviation-X-Axis
+    - time-Body-Gyroscope-Standard-Deviation-Y-Axis
+    - time-Body-Gyroscope-Standard-Deviation-Z-Axis
+    - time-Body-Gyroscope-Jerk-Mean-X-Axis
+    - time-Body-Gyroscope-Jerk-Mean-Y-Axis
+    - time-Body-Gyroscope-Jerk-Mean-Z-Axis
+    - time-Body-Gyroscope-Jerk-Standard-Deviation-X-Axis
+    - time-Body-Gyroscope-Jerk-Standard-Deviation-Y-Axis
+    - time-Body-Gyroscope-Jerk-Standard-Deviation-Z-Axis
+  * Magnitude of angular velocity from the gyroscope, measured in units of radians/second,
+    - time-Body-Gyroscope-Magnitude-Mean
+    - time-Body-Gyroscope-Magnitude-Standard-Deviation
+    - time-Body-Gyroscope-Jerk-Magnitude-Mean
+    - time-Body-Gyroscope-Jerk-Magnitude-Standard-Deviation
+  * Fast Fourier Transform applied to some of the signals above:
+    - frequency-Body-Accelerometer-Mean-X-Axis
+    - frequency-Body-Accelerometer-Mean-Y-Axis
+    - frequency-Body-Accelerometer-Mean-Z-Axis
+    - frequency-Body-Accelerometer-Standard-Deviation-X-Axis
+    - frequency-Body-Accelerometer-Standard-Deviation-Y-Axis
+    - frequency-Body-Accelerometer-Standard-Deviation-Z-Axis
+    - frequency-Body-Accelerometer-Jerk-Mean-X-Axis
+    - frequency-Body-Accelerometer-Jerk-Mean-Y-Axis
+    - frequency-Body-Accelerometer-Jerk-Mean-Z-Axis
+    - frequency-Body-Accelerometer-Jerk-Standard-Deviation-X-Axis
+    - frequency-Body-Accelerometer-Jerk-Standard-Deviation-Y-Axis
+    - frequency-Body-Accelerometer-Jerk-Standard-Deviation-Z-Axis
+    - frequency-Body-Gyroscope-Mean-X-Axis
+    - frequency-Body-Gyroscope-Mean-Y-Axis
+    - frequency-Body-Gyroscope-Mean-Z-Axis
+    - frequency-Body-Gyroscope-Standard-Deviation-X-Axis
+    - frequency-Body-Gyroscope-Standard-Deviation-Y-Axis
+    - frequency-Body-Gyroscope-Standard-Deviation-Z-Axis
+    - frequency-Body-Accelerometer-Magnitude-Mean
+    - frequency-Body-Accelerometer-Magnitude-Standard-Deviation
+    - frequency-Body-Body-Accelerometer-Jerk-Magnitude-Mean
+    - frequency-Body-Body-Accelerometer-Jerk-Magnitude-Standard-Deviation
+    - frequency-Body-Body-Gyroscope-Magnitude-Mean
+    - frequency-Body-Body-Gyroscope-Magnitude-Standard-Deviation
+    - frequency-Body-Body-Gyroscope-Jerk-Magnitude-Mean
+    - frequency-Body-Body-Gyroscope-Jerk-Magnitude-Standard-Deviation
 
 Transformations of the data
 ---------------------------
 
-This R script, called “run\_analysis.R”, does the following:
+The run_analysis.R script transforms the original dataset into tidy data set. The output of the script is a tidy data text file (tidyData.txt) that meets the principles of tidy data as described by Wickham (3).The script completes the following actions:
 
 1.  Merges the training and the test sets to create one data set
 2.  Extracts only the measurements on the mean and standard deviation
@@ -190,18 +209,20 @@ This R script, called “run\_analysis.R”, does the following:
 4.  Appropriately labels the data set with descriptive variable names
 5.  From the data set in step 4, creates a second, independent tidy data
     set with the average of each variable for each activity and each
-    subject.
+    subject
+
 
 At the start of the script, libraries needed to transform the data are
 loaded:
-
+```{r}
     library(dplyr)
     library(reshape2)
     library(tidyverse)
+```
 
 The script then checks whether the folder containing the data already
 exists and, if not, downloads and unzips the data.
-
+```{r}
     if (!file.exists("UCI HAR Dataset")) {
 
       fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -210,26 +231,29 @@ exists and, if not, downloads and unzips the data.
 
       # Unzip the file into the current working directory
       unzip("Dataset.zip", exdir = ".")
-
-      rm(fileURL)
     }
+```
 
-The data was first combined into a single data frame by reading in the
+1. The data was combined into a single data frame by reading the
 test and training data (subject\_test.txt, y\_test.txt and X\_test.txt
 files or equivalent ‘train’ files) into seperate data frames and then
-combining the data frames into a single ‘all\_data’ data frame as
+joining the data frames together into a single data frame called ‘all\_data’, as
 follows:
 
-    test_data <- cbind((read.delim("UCI HAR Dataset/test/subject_test.txt", header = FALSE, col.names = "subject")), (read.table("UCI HAR Dataset/test/y_test.txt", header = FALSE,
-    col.names = "act_id")), (read.table("UCI HAR Dataset/test/X_test.txt",  header = FALSE)))
+```{r}
+  test_data <- cbind((read.delim("UCI HAR Dataset/test/subject_test.txt", header = FALSE, 
+  col.names = "subject")), (read.table("UCI HAR Dataset/test/y_test.txt", header = FALSE,
+  col.names = "act_id")), (read.table("UCI HAR Dataset/test/X_test.txt",  header = FALSE)))
+  
+  training_data <- cbind((read.delim("UCI HAR Dataset/train/subject_train.txt", 
+  header = FALSE, col.names = "subject")), (read.delim("UCI HAR Dataset/train/y_train.txt", 
+  header = FALSE, col.names = "act_id")), (read.table("UCI HAR Dataset/train/X_train.txt", 
+  header = FALSE)))
+  
+  all_data <- rbind(test_data, training_data)
+```
 
-    training_data <- cbind((read.delim("UCI HAR Dataset/train/subject_train.txt", header = FALSE, col.names = "subject")), (read.delim("UCI HAR Dataset/train/y_train.txt", header = FALSE, col.names = "act_id")), (read.table("UCI HAR Dataset/train/X_train.txt", header = FALSE)))
-
-    all_data <- rbind(test_data, training_data)
-
-    rm(test_data, training_data)
-
-1.  The assignment requires that only the mean and standard deviation
+2.  The assignment requires that only the mean and standard deviation
     for each measurement are used for subsequent data transformation.
     The list of measurement names is contianed in ‘features.txt. This
     was read into a the ’features’ object contining 561 elements.
@@ -247,11 +271,14 @@ from ‘all\_data’ (adding ‘2’ to the vector to account for the two
 initial rows of ‘all\_data’). Following this, ‘all\_data’ contains
 10,299 rows and 68 columns
 
-    features <- read.table("UCI HAR Dataset/features.txt",  row.names = 1, colClasses = "character")
-
-    all_data <- select(all_data, subject, act_id, (grep("mean[()]|std[()]", features$V2)+2))
-
-1.  Descriptive activity names were used to name the activities in the
+```{r}
+  features <- read.table("UCI HAR Dataset/features.txt",  row.names = 1,
+  colClasses = "character")
+  
+  all_data <- select(all_data, subject, act_id, (grep("mean[()]|std[()]",
+  features$V2)+2))
+```
+3.  Descriptive activity names were used to name the activities in the
     data set
 
 Activity names are contained in ‘activity\_labels.txt’ and this was read
@@ -262,7 +289,9 @@ inner\_join (to keep the row order unchanged) and a new column,
 ‘activity’ was added and moved to the 2nd column position. The ‘act\_id’
 column was then removed from ‘all\_data’.
 
-    activities <- read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("act_id", "activity"),colClasses = c("numeric","character"))
+```{r}
+    activities <- read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("act_id", "activity"), 
+    colClasses = c("numeric","character"))
 
     activities$activity <- tolower(activities$activity)
     activities$activity <- gsub("_", " ", activities$activity)
@@ -271,8 +300,9 @@ column was then removed from ‘all\_data’.
 
     all_data <- select(all_data, subject, activity, everything())
     all_data <- all_data[,-3]
+```
 
-1.  The data set was then labelled with descriptive variable names. This
+4.  The data set was then labelled with descriptive variable names. This
     was acheived by creating a data frame from ‘features’ with items
     contianing ‘mean()’ or ‘std() and assign the values to ’features’,
     then use use gsub() to replace parts of the names with more
@@ -294,7 +324,7 @@ column was then removed from ‘all\_data’.
 -   add ‘subject’ and ‘activity’ to start of ’features
 
 Then use ‘features’ to name all the columns in ‘all\_data’
-
+```{r}
     features <- tbl_df(grep("mean[()]|std[()]", features$V2, value = TRUE))
 
     features$value <- gsub("^t", "time-", features$value, ignore.case = FALSE)
@@ -315,10 +345,11 @@ Then use ‘features’ to name all the columns in ‘all\_data’
     features <- rbind("subject", "activity", features)
 
     colnames(all_data) <- features$value
+```
 
-1.  The final part of the assignment ask that from the data set in step
-    4, create a second, independent tidy data set with the average of
-    each variable for each activity and each subject.
+5.  The final part of the assignment asked that from the data set created in step
+    4, a second , independent tidy data set with the average of
+    each variable for each activity and each subject be created.
 
 To achieve this, ‘all\_data’ was transformed from a 10,299 row x 68
 column data frame into a 679,734 row x 4 column data frame using the
@@ -333,30 +364,33 @@ subject. Here, the data are grouped y subject, activity and feature in
 order to calculate average for each variable (and not simply an average
 for all variables for each subject and activity.
 
-    molten_data <- melt(all_data, id.vars = c("subject", "activity"), variable.name = "feature")
+```{r}
+molten_data <- melt(all_data, id.vars = c("subject", "activity"), variable.name = "feature")
 
-    tidy_data <- molten_data %>% group_by(subject, activity, feature) %>% summarise(average = mean(value))
+tidy_data <- molten_data %>% group_by(subject, activity, feature) %>% summarise(average = mean(value))
+```
 
-Only the tidy\_data objects is kept
-
-    rm(activities, all_data, features, molten_data)
-
-The tidy data set was writen to a text file
-
+Objects no longer needed are removed by the script. 
+```{r}
+    rm(activities, all_data, features, molten_data, test_data, training_data)
+```
+The tidy data set was writen to a text file called 'tidyData.txt'.
+```{r}
     write.table(tidy_data, file = "tidyData.txt", row.names = FALSE)
-
-To tidyData.txt file can be read usign the following code:
+```
+N.B. The tidyData.txt file can be read using the following code:
 
     read.table("tidyData.txt", header = TRUE, check.names = FALSE)
 
 ### References
 
-\[^1\] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and
+1. Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and
 Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a
 Multiclass Hardware-Friendly Support Vector Machine. International
 Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz,
 Spain. Dec 2012.  
-\[^2\] Hood, D. (2015) Getting and Cleaning the Assignment \[Blog\]
+2. Hood, D. (2015) Getting and Cleaning the Assignment (Blog)
 *thoughtfulbloke blog*. Available at:
 <a href="https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/" class="uri">https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/</a>
 (Accessed: 13 May 2020).
+3. Wickham, H. Tidy data. The Journal of Statistical Software, vol. 59, 2014. https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf (Accessed: 13 March 2020)
