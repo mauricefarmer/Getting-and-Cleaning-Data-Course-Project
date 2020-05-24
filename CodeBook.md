@@ -1,4 +1,4 @@
-`{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)`
+CodeBook for Final Assignment for Johns Hopkins Getting and Cleaning Data Course
 
 The data
 --------
